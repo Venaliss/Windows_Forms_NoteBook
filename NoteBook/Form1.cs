@@ -33,7 +33,7 @@ namespace NoteBook
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox1.SaveFile(dialog.FileName, RichTextBoxStreamType.PlainText);
-                this.Text = dialog.FileName;
+                _openFile = dialog.FileName;
             }
         }
 
@@ -45,7 +45,7 @@ namespace NoteBook
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox1.LoadFile(dialog.FileName, RichTextBoxStreamType.PlainText);
-                this.Text = dialog.FileName;
+                _openFile = dialog.FileName;
             }
         }
 
@@ -104,6 +104,20 @@ namespace NoteBook
         private void ToolStripMenuItem_Click_ProgramInfo(object sender, EventArgs e)
         {
             MessageBox.Show("Продукт нелицензирован.", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void ToolStripMenuItemSaveChange_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog dialog = new OpenFileDialog();
+            try
+            {
+                File.WriteAllText(_openFile, richTextBox1.Text);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ошибка сохранения файла. Файл не был открыт или создан.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

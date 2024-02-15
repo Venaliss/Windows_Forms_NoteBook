@@ -23,6 +23,14 @@ namespace NoteBook
         private void ToolStripMenuItemCreate_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Title = "Создать";
+            dialog.Filter = "Текстовый документ(*.txt)|*.txt|Все файлы(*.*)|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.SaveFile(dialog.FileName, RichTextBoxStreamType.PlainText);
+                _openFile = dialog.FileName;
+            }
         }
 
         private void ToolStripMenuItemSafe_Click(object sender, EventArgs e)

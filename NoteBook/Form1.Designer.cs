@@ -33,6 +33,7 @@
             this.menuNoteBook = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSaveChange = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSaveToComputer = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemPrint = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@
             this.ToolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.ToolStripMenuItemSaveChange = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNoteBook.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,14 @@
             this.ToolStripMenuItemNew.Text = "Создать";
             this.ToolStripMenuItemNew.ToolTipText = "Создать новый файл";
             this.ToolStripMenuItemNew.Click += new System.EventHandler(this.ToolStripMenuItemCreate_Click);
+            // 
+            // ToolStripMenuItemSaveChange
+            // 
+            this.ToolStripMenuItemSaveChange.Name = "ToolStripMenuItemSaveChange";
+            this.ToolStripMenuItemSaveChange.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.ToolStripMenuItemSaveChange.Size = new System.Drawing.Size(278, 26);
+            this.ToolStripMenuItemSaveChange.Text = "Сохранить";
+            this.ToolStripMenuItemSaveChange.Click += new System.EventHandler(this.ToolStripMenuItemSaveChange_Click);
             // 
             // ToolStripMenuItemSaveToComputer
             // 
@@ -192,7 +200,7 @@
             // ToolStripMenuItemInfo
             // 
             this.ToolStripMenuItemInfo.Name = "ToolStripMenuItemInfo";
-            this.ToolStripMenuItemInfo.Size = new System.Drawing.Size(170, 26);
+            this.ToolStripMenuItemInfo.Size = new System.Drawing.Size(216, 26);
             this.ToolStripMenuItemInfo.Text = "О программе";
             this.ToolStripMenuItemInfo.Click += new System.EventHandler(this.ToolStripMenuItem_Click_ProgramInfo);
             // 
@@ -213,14 +221,6 @@
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Tag = "";
             this.richTextBox1.Text = "";
-            // 
-            // ToolStripMenuItemSaveChange
-            // 
-            this.ToolStripMenuItemSaveChange.Name = "ToolStripMenuItemSaveChange";
-            this.ToolStripMenuItemSaveChange.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.ToolStripMenuItemSaveChange.Size = new System.Drawing.Size(278, 26);
-            this.ToolStripMenuItemSaveChange.Text = "Сохранить";
-            this.ToolStripMenuItemSaveChange.Click += new System.EventHandler(this.ToolStripMenuItemSaveChange_Click);
             // 
             // NoteBook
             // 

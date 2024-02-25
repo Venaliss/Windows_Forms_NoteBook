@@ -111,7 +111,7 @@ namespace NoteBook
 
         private void ToolStripMenuItem_Click_ProgramInfo(object sender, EventArgs e)
         {
-            MessageBox.Show("Продукт нелицензирован.", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("О программе - NotePad\n\nБлокнот - это текстовый редактор, который разработан и выпускается мной. Используется для создания и редактирования текстовых документов.\n\nВерсия: 0.1\nАвторы: Venaliss\n\nДата публикации: 25.02.2024", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);      
         }
 
         private void ToolStripMenuItemSaveChange_Click(object sender, EventArgs e)

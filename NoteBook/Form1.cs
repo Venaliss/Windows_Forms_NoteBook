@@ -35,26 +35,33 @@ namespace NoteBook
 
         private void ToolStripMenuItemSafe_Click(object sender, EventArgs e)
         {
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Title = "Сохранить";
-            dialog.Filter = "Текстовый документ(*.txt)|*.txt|Все файлы(*.*)|*.*";
-            if (dialog.ShowDialog() == DialogResult.OK)
+            SaveFileDialog dialog_save = new SaveFileDialog();
+            dialog_save.Title = "Сохранить";
+            dialog_save.Filter = "Текстовый документ(*.txt)|*.txt|Все файлы(*.*)|*.*";
+            if (dialog_save.ShowDialog() == DialogResult.OK)
             {
-                richTextBox1.SaveFile(dialog.FileName, RichTextBoxStreamType.PlainText);
-                _openFile = dialog.FileName;
+                using (StreamWriter writer = new StreamWriter(dialog_save.FileName, false, Encoding.UTF8))
+                {
+                    writer.Write(richTextBox1.Text);
+                }
+
+                _openFile = dialog_save.FileName;
             }
         }
 
         private void ToolStripMenuItemOpen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "Открыть";
-            dialog.Filter = "Текстовый документ(*.txt)|*.txt|Все файлы(*.*)|*.*";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                richTextBox1.LoadFile(dialog.FileName, RichTextBoxStreamType.PlainText);
-                _openFile = dialog.FileName;
-            }
+            OpenFileDialog dialog_open = new OpenFileDialog();
+            dialog_open.Title = "Открыть";
+            dialog_open.Filter = "Текстовый документ(*.txt)|*.txt|Все файлы(*.*)|*.*";
+                if (dialog_open.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamReader reader = new StreamReader(dialog_open.FileName, Encoding.UTF8))
+                    {
+                        richTextBox1.Text = reader.ReadToEnd();
+                    }
+                    _openFile = dialog_open.FileName;
+                }
         }
 
         private void ToolStripMenuItemPrint_Click(object sender, EventArgs e)
